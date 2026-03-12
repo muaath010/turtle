@@ -14,6 +14,7 @@
             --card-bg: #ffffff;
             --text-dark: #2d3748;
             --accent-blue: #3182ce;
+            --warning-orange: #ed8936;
         }
 
         body {
@@ -94,9 +95,9 @@
         nav button {
             background: none;
             border: none;
-            padding: 18px 30px;
+            padding: 15px 25px;
             font-family: 'Tajawal', sans-serif;
-            font-size: 1.1rem;
+            font-size: 1.05rem;
             font-weight: 700;
             cursor: pointer;
             color: #718096;
@@ -164,6 +165,12 @@
             gap: 10px;
         }
 
+        h3 {
+            color: var(--accent-blue);
+            font-size: 1.4rem;
+            margin-top: 25px;
+        }
+
         .info-box {
             background: linear-gradient(to left, #e6fffa, #e2f1f8);
             border-right: 6px solid var(--primary-green);
@@ -174,6 +181,11 @@
             line-height: 1.8;
             box-shadow: 0 4px 6px rgba(0,0,0,0.02);
             transition: transform 0.3s ease;
+        }
+
+        .info-box.warning {
+            background: linear-gradient(to left, #fffaf0, #feebc8);
+            border-right: 6px solid var(--warning-orange);
         }
 
         .info-box:hover {
@@ -229,26 +241,26 @@
             line-height: 1.6;
         }
 
-        /* تلوين الكود (Syntax Highlighting) */
-        .kw { color: #c678dd; } /* Keyword */
-        .fn { color: #61afef; } /* Function */
-        .st { color: #98c379; } /* String */
-        .cm { color: #5c6370; font-style: italic; } /* Comment */
-        .nm { color: #d19a66; } /* Number */
+        /* تلوين الكود */
+        .kw { color: #c678dd; } 
+        .fn { color: #61afef; } 
+        .st { color: #98c379; } 
+        .cm { color: #5c6370; font-style: italic; } 
+        .nm { color: #d19a66; } 
 
-        /* البطاقات التفاعلية للخصائص */
+        /* البطاقات التفاعلية */
         .cards-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
-            margin-top: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 25px;
         }
 
         .card {
             background: #fff;
             border: 2px solid #edf2f7;
             border-radius: 15px;
-            padding: 25px;
+            padding: 20px;
             text-align: center;
             transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             position: relative;
@@ -267,7 +279,7 @@
 
         .card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.08);
             border-color: transparent;
         }
 
@@ -275,30 +287,11 @@
             transform: scaleX(1);
         }
 
-        .card h3 {
-            color: var(--accent-blue);
-            font-size: 1.4rem;
+        .card h4 {
+            color: var(--primary-green);
+            font-size: 1.2rem;
             margin-top: 0;
-        }
-
-        ul.styled-list {
-            list-style: none;
-            padding: 0;
-        }
-
-        ul.styled-list li {
-            padding: 10px 0;
-            position: relative;
-            padding-right: 30px;
-            font-size: 1.1rem;
-            border-bottom: 1px dashed #e2e8f0;
-        }
-
-        ul.styled-list li::before {
-            content: '💻';
-            position: absolute;
-            right: 0;
-            top: 10px;
+            margin-bottom: 10px;
         }
 
     </style>
@@ -312,6 +305,7 @@
 
     <nav>
         <button class="active" onclick="openTab(event, 'intro')">📌 المقدمة</button>
+        <button onclick="openTab(event, 'advanced')">🧠 أسرار السلحفاة</button>
         <button onclick="openTab(event, 'basics')">🚀 الحركة الأساسية</button>
         <button onclick="openTab(event, 'shapes')">🔄 الأشكال والتكرار</button>
         <button onclick="openTab(event, 'properties')">🎨 خصائص السلحفاة</button>
@@ -333,6 +327,65 @@
             </div>
         </div>
 
+        <div id="advanced" class="tab-content">
+            <h2>أسرار وخفايا وحدة السلحفاة</h2>
+            <p style="font-size: 1.1rem; line-height: 1.8;">تعتمد فكرة هذه الوحدة على ربط التفكير المنطقي المجرد بالحركة الفيزيائية المباشرة. حيث يتخيل المبرمج نفسه مكان المؤشر الموجود على الشاشة ليقرر الاتجاهات والخطوات اللازمة لبناء الأشكال المعقدة بدقة متناهية.</p>
+
+            <h3>1. نظام الإحداثيات (Coordinates)</h3>
+            <p>الشاشة البيضاء ليست مجرد صفحة فارغة، بل هي مستوى إحداثي (سيني X وصادي Y). تبدأ السلحفاة دائماً من <strong>نقطة الأصل (0, 0)</strong> في المنتصف.</p>
+            <div class="info-box">
+                <strong>📍 دالة الانتقال السريع:</strong> يمكنك نقل المؤشر فوراً لأي نقطة باستخدام دالة <code>goto(x, y)</code>. مثلاً <code>goto(100, 100)</code> ستنقل المؤشر للزاوية العلوية اليمنى.
+            </div>
+
+            <h3>2. التصنيف الشامل للأوامر (مع الاختصارات)</h3>
+            <div class="cards-grid">
+                <div class="card">
+                    <h4>دوال الحركة والتوجيه</h4>
+                    <p><code>forward()</code> ⬅️ اختصارها <code>fd()</code></p>
+                    <p><code>backward()</code> ⬅️ اختصارها <code>bk()</code></p>
+                    <p><code>right()</code> ⬅️ اختصارها <code>rt()</code></p>
+                    <p><code>left()</code> ⬅️ اختصارها <code>lt()</code></p>
+                </div>
+                <div class="card">
+                    <h4>دوال التحكم بالقلم</h4>
+                    <p><code>penup()</code>: رفع القلم (لا يرسم)</p>
+                    <p><code>pendown()</code>: إنزال القلم (يرسم)</p>
+                    <p><code>pensize(5)</code>: سماكة الخط</p>
+                    <p><code>pencolor("red")</code>: لون الخط</p>
+                </div>
+                <div class="card">
+                    <h4>دوال المظهر والسرعة</h4>
+                    <p><code>shape("circle")</code>: شكل المؤشر</p>
+                    <p><code>speed(0)</code>: أقصى سرعة للرسم</p>
+                    <p><code>speed(1)</code>: أبطأ سرعة</p>
+                </div>
+            </div>
+
+            <h3>3. إبداع بلا حدود (Spirograph)</h3>
+            <p>بقوة الرياضيات والتكرار، يمكننا رسم أشكال هندسية متداخلة مبهرة في بضعة أسطر فقط!</p>
+            <div class="code-container">
+                <div class="code-header">
+                    <span>رسم شكل هندسي متداخل (Spirograph)</span>
+                    <button class="copy-btn" onclick="copyCode('code_advanced')">نسخ الكود</button>
+                </div>
+<pre id="code_advanced"><code><span class="kw">from</span> turtle <span class="kw">import</span> *
+<span class="fn">Turtle</span>()
+<span class="fn">speed</span>(<span class="nm">0</span>)          <span class="cm"># أقصى سرعة</span>
+<span class="fn">bgcolor</span>(<span class="st">"black"</span>)  <span class="cm"># خلفية سوداء</span>
+<span class="fn">pencolor</span>(<span class="st">"cyan"</span>)  <span class="cm"># لون القلم سماوي</span>
+
+<span class="cm"># رسم 36 دائرة متداخلة</span>
+<span class="kw">for</span> i <span class="kw">in</span> <span class="fn">range</span>(<span class="nm">36</span>):
+    <span class="fn">circle</span>(<span class="nm">100</span>)   <span class="cm"># رسم دائرة نصف قطرها 100</span>
+    <span class="fn">right</span>(<span class="nm">10</span>)     <span class="cm"># الدوران 10 درجات بعد كل دائرة</span>
+</code></pre>
+            </div>
+
+            <div class="info-box warning">
+                <strong>⚠️ نصيحة للمبرمجين:</strong> احذر من تسمية ملفك باسم <code>turtle.py</code>، لأن بايثون ستقوم باستيراد ملفك الفارغ بدلاً من مكتبة بايثون الأصلية، وسيتوقف البرنامج عن العمل!
+            </div>
+        </div>
+
         <div id="basics" class="tab-content">
             <h2>الحركة الأساسية للسلحفاة (IDLE)</h2>
             <p>لكي نبدأ في استخدام السلحفاة، يجب استدعاء الوحدة أولاً. طبق الكود التالي في محرر IDLE:</p>
@@ -350,7 +403,6 @@
 <span class="fn">forward</span>(<span class="nm">100</span>)          <span class="cm"># التقدم للأمام مرة أخرى</span>
 </code></pre>
             </div>
-            
             <p><strong>توضيح:</strong> يبدأ المؤشر دائماً من نقطة المنتصف بإحداثيات (0,0) متجهاً نحو اليمين.</p>
         </div>
 
@@ -380,17 +432,17 @@
             
             <div class="cards-grid">
                 <div class="card">
-                    <h3>لون الخلفية</h3>
+                    <h4>لون الخلفية</h4>
                     <p>دالة <code>bgcolor</code></p>
                     <code style="background: #eee; padding: 5px 10px; border-radius: 5px; color: #e53e3e;">bgcolor("blue")</code>
                 </div>
                 <div class="card">
-                    <h3>شكل المؤشر</h3>
+                    <h4>شكل المؤشر</h4>
                     <p>دالة <code>shape</code></p>
                     <code style="background: #eee; padding: 5px 10px; border-radius: 5px; color: #e53e3e;">shape("turtle")</code>
                 </div>
                 <div class="card">
-                    <h3>كتابة نص</h3>
+                    <h4>كتابة نص</h4>
                     <p>دالة <code>write</code></p>
                     <code style="background: #eee; padding: 5px 10px; border-radius: 5px; color: #e53e3e;">write("Oman")</code>
                 </div>
@@ -418,8 +470,6 @@
             <div class="info-box">
                 <strong>🎯 المطلوب في الكتاب المدرسي:</strong> دمج دالة الإدخال <code>input()</code> مع الجمل الشرطية <code>if/elif</code> لرسم أشكال هندسية مختلفة بناءً على اختيار المستخدم (من 1 إلى 3) مع كتابة اسم الشكل.
             </div>
-
-            <p>هذا هو الكود النموذجي والمثالي لحل النشاط لتطبيقه أمام الطلاب:</p>
 
             <div class="code-container">
                 <div class="code-header">
@@ -461,7 +511,6 @@ num = <span class="fn">int</span>(<span class="fn">input</span>(<span class="st"
     </div>
 
     <script>
-        // دالة التنقل بين التبويبات مع الأنيميشن
         function openTab(evt, tabName) {
             var i, tabcontent, tablinks;
             
@@ -478,7 +527,6 @@ num = <span class="fn">int</span>(<span class="fn">input</span>(<span class="st"
 
             document.getElementById(tabName).style.display = "block";
             
-            // تأخير بسيط للسماح ببدء حركة الأنيميشن
             setTimeout(() => {
                 document.getElementById(tabName).classList.add("active");
             }, 10);
@@ -486,22 +534,19 @@ num = <span class="fn">int</span>(<span class="fn">input</span>(<span class="st"
             evt.currentTarget.className += " active";
         }
 
-        // دالة نسخ الكود البرمجي
         function copyCode(elementId) {
             const codeElement = document.getElementById(elementId);
-            // إزالة العلامات (tags) لنسخ النص الصافي فقط
             const textToCopy = codeElement.innerText;
             
             navigator.clipboard.writeText(textToCopy).then(() => {
-                // تغيير نص الزر مؤقتاً كدليل على نجاح النسخ
                 const btn = event.target;
                 const originalText = btn.innerText;
                 btn.innerText = "تم النسخ! ✔️";
-                btn.style.backgroundColor = "#009A44"; // لون أخضر للنجاح
+                btn.style.backgroundColor = "#009A44"; 
                 
                 setTimeout(() => {
                     btn.innerText = originalText;
-                    btn.style.backgroundColor = ""; // استعادة اللون الأصلي
+                    btn.style.backgroundColor = ""; 
                 }, 2000);
             }).catch(err => {
                 console.error('فشل في نسخ النص: ', err);
